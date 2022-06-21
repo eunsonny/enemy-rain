@@ -1,0 +1,27 @@
+#app {
+  /* border: 1px solid red; */
+}
+
+#bg {
+  background-image: url("../Images/bg.png");
+  width: 800px;
+  height: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#hero {
+  background-image: url("../Images/hero.png");
+  width: 35px;
+  height: 55px;
+  position: relative;
+  top: 530px;
+}
+
+.right {
+  background-position: 35px;
+}
+
+.left {
+  background-position: 70px;
+}
