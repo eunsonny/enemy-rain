@@ -9,6 +9,7 @@ export class Hero {
 
   createHero() {
     const bg = document.querySelector("#bg");
+    console.log(this.hero)
     this.hero.id = "hero";
     this.hero.style.left = this.positionX + "px";
     bg?.appendChild(this.hero);

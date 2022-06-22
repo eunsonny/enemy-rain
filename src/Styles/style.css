@@ -25,3 +25,11 @@
 .left {
   background-position: 70px;
 }
+
+.ghost {
+  background-image: url("../Images/enemy.png");
+  position: absolute;
+  width: 45px;
+  height: 55px;
+  /* top: 30px; */
+}
