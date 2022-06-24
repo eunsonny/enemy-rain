@@ -1,23 +1,20 @@
-import hero from './hero';
-import ghost from './ghost';
-
+import hero from "./hero";
+import { Enemy } from "./enemy";
 
 export class Game {
-  constructor() {
+  constructor() {}
 
-  }
-
-  startGame() {
-    console.log('start game')
+  start() {
+    console.log("start game");
     hero.createHero();
-    // ghost.createGhost();
-    // setInterval(ghost.createGhost, 1000);
-    document.addEventListener("keydown", (e) => hero.move(e))
+
+    // setInterval(() => {
+    //   new Enemy(30);
+    // }, 3000);
+    document.addEventListener("keydown", (e) => hero.move(e));
   }
 
-  endGame() {
-
-  }
+  end() {}
 }
 
 export default new Game();

@@ -26,10 +26,14 @@
   background-position: 70px;
 }
 
-.ghost {
+.enemy {
   background-image: url("../Images/enemy.png");
   position: absolute;
   width: 45px;
   height: 55px;
   /* top: 30px; */
+}
+
+.die {
+  background-position: 45px;
 }
