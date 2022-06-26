@@ -18,6 +18,17 @@
   top: 530px;
 }
 
+#score_board {
+  /* border: 1px solid red; */
+  position: absolute;
+  left: 665px;
+  top: 40px;
+  background-color: white;
+  /* color: white; */
+  font-size: 20px;
+  font-weight: bold;
+}
+
 .right {
   background-position: 35px;
 }

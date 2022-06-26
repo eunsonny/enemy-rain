@@ -1,4 +1,5 @@
 import hero from './hero';
+import score from './score';
 
 export class Enemy {
   enemy: HTMLDivElement;
@@ -41,6 +42,7 @@ export class Enemy {
          if (Math.abs(hero.positionX - this.positionX) <= 35) {
             console.log('collis');
             this.die();
+            score.getPoint()
          }  
        }
 
@@ -57,6 +59,10 @@ export class Enemy {
       const bg = document.querySelector("#bg");
       bg?.removeChild(this.enemy);
     }, 2000)
+  }
+
+  clearAllEnemy() {
+    
   }
 }
 

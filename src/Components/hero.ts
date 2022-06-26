@@ -18,13 +18,13 @@ export class Hero {
     switch (e.key) {
       case "ArrowRight":
         if (this.positionX === 750) return;
-        this.positionX += 5;
+        this.positionX += 10;
         this.hero.style.left = this.positionX + 'px';
         this.hero.className = "hero right"
         break;
       case "ArrowLeft":
         if (this.positionX === 30) return;
-        this.positionX -= 5;
+        this.positionX -= 10;
         this.hero.style.left = this.positionX + 'px';
         this.hero.className = "hero left"
       default:
