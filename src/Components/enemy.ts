@@ -1,35 +1,32 @@
 import hero from './hero';
 import score from './score';
+import game from './game';
 
 export class Enemy {
   enemy: HTMLDivElement;
+  character: string;
   positionX: number;
   positionY: number;
   enemyDown: number;
-  // enemyDown: NodeJs.timeout;
 
-  constructor(y: number) {
+  constructor(y: number, characterName: string) {
     this.enemy = document.createElement("div");
+    this.character = characterName;
     this.positionX = Math.random() * 755;
     this.positionY = y;
     this.enemyDown = 0;
-    this.createGhost();
+    this.creatEnemy();
   }
 
-  createGhost() {
-    const bg = document.querySelector("#bg");
-    // this.ghost = document.createElement("div");
-    this.enemy.className = "enemy";
-    // this.enemy.style.left = Math.random() * 755 + "px";
+  creatEnemy() {
+    this.enemy.className = this.character;
     this.enemy.style.left = `${this.positionX}px`;
     this.enemy.style.top = `${this.positionY}px`;
-    bg?.appendChild(this.enemy);
-  
-    this.goDown()
+    game.bg.appendChild(this.enemy);
+    this.goDown();
   }
 
   goDown() {
-    // console.log('godown')
     this.enemyDown = setInterval(() => {
        if (this.positionY < 545) {
         this.positionY += 5;
@@ -37,10 +34,7 @@ export class Enemy {
        }
 
        if (this.positionY === 485) {
-        // console.log('hero', hero.positionX)
-        // console.log(this.positionX)
-         if (Math.abs(hero.positionX - this.positionX) <= 35) {
-            console.log('collis');
+         if ((Math.abs(hero.positionX - this.positionX) <= 35) && hero.status === 'back') {
             this.die();
             score.getPoint()
          }  
@@ -56,13 +50,8 @@ export class Enemy {
     this.enemy.className = 'enemy die';
     clearInterval(this.enemyDown);
     setTimeout(() => {
-      const bg = document.querySelector("#bg");
-      bg?.removeChild(this.enemy);
+      game.bg.removeChild(this.enemy);
     }, 2000)
-  }
-
-  clearAllEnemy() {
-    
   }
 }
 

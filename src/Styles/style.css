@@ -18,17 +18,6 @@
   top: 530px;
 }
 
-#score_board {
-  /* border: 1px solid red; */
-  position: absolute;
-  left: 665px;
-  top: 40px;
-  background-color: white;
-  /* color: white; */
-  font-size: 20px;
-  font-weight: bold;
-}
-
 .right {
   background-position: 35px;
 }
@@ -37,14 +26,35 @@
   background-position: 70px;
 }
 
-.enemy {
-  background-image: url("../Images/enemy.png");
+.back {
+  background-position: 105px;
+}
+
+.ghost {
+  background-image: url("../Images/ghost.png");
   position: absolute;
   width: 45px;
   height: 55px;
-  /* top: 30px; */
 }
 
 .die {
   background-position: 45px;
+}
+
+#score_board {
+  position: absolute;
+  left: 665px;
+  top: 70px;
+  background-color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#stage_board {
+  position: absolute;
+  left: 625px;
+  top: 40px;
+  background-color: white;
+  font-size: 20px;
+  font-weight: bold;
 }

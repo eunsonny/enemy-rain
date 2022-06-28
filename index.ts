@@ -5,4 +5,4 @@ game.start();
 
 setTimeout(() => {
   game.end()
-}, 5000)
+}, 30000)

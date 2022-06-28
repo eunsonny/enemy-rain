@@ -1,3 +1,4 @@
+
 export class Score {
   scoreBoard: HTMLDivElement;
   score: number;

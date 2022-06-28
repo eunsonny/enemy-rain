@@ -1,17 +1,20 @@
+import game from "./game";
+
 export class Hero {
   hero: HTMLDivElement;
+  status: 'left' | 'right' | 'back' | 'front';
   positionX: number;
 
   constructor(x: number) {
     this.hero = document.createElement("div");
+    this.status = 'front';
     this.positionX = x;
   }
 
   createHero() {
-    const bg = document.querySelector("#bg");
     this.hero.id = "hero";
-    this.hero.style.left = this.positionX + "px";
-    bg?.appendChild(this.hero);
+    this.hero.style.left = `${this.positionX}px`;
+    game.bg.appendChild(this.hero);
   }
 
   move(e: KeyboardEvent) {
@@ -19,14 +22,21 @@ export class Hero {
       case "ArrowRight":
         if (this.positionX === 750) return;
         this.positionX += 10;
-        this.hero.style.left = this.positionX + 'px';
-        this.hero.className = "hero right"
+        this.hero.style.left = `${this.positionX}px`;
+        this.hero.className = "hero right";
+        this.status = 'right';
         break;
       case "ArrowLeft":
         if (this.positionX === 30) return;
         this.positionX -= 10;
-        this.hero.style.left = this.positionX + 'px';
-        this.hero.className = "hero left"
+        this.hero.style.left = `${this.positionX}px`;
+        this.hero.className = "hero left";
+        this.status = 'left';
+        break;
+      case 'ArrowUp':
+        this.hero.className = "hero back";
+        this.status = 'back';
+        break;
       default:
         return;
     }
