@@ -1,5 +1,6 @@
 import game from "./game";
 import score from "./score";
+import { lastStageLevel, timeLimit } from "../../constant";
 import { Enemy } from "./enemy";
 
 
@@ -60,7 +61,7 @@ export class Stage {
       this.renderTimeBoard();
       this.renderStageBoard();
 
-      if (this.time === 31) {
+      if (this.time === timeLimit + 1) {
         this.end('over');
       }
     }, 1000);
@@ -89,6 +90,11 @@ export class Stage {
     }
 
     if (type === 'clear') {
+      if (this.level === lastStageLevel) {
+        alert('all clear');
+        return game.end();
+      }
+
       alert(`level ${this.level} stage is clear`);
       if (confirm("Do you want to go to next stage?")) {
         return this.goToNextLevel();

@@ -1,4 +1,6 @@
+import { scoreGoal } from './../../constant';
 import stage from "./stage";
+
 
 export class Score {
   scoreBoard: HTMLDivElement;
@@ -25,7 +27,7 @@ export class Score {
       bg?.appendChild(scoreBoard)
     }
 
-    if (this.score === 3) {
+    if (this.score === scoreGoal) {
       stage.end('clear');
     }
   }
