@@ -2,11 +2,13 @@ import game from "./game";
 
 export class Hero {
   hero: HTMLDivElement;
+  life: number;
   status: 'left' | 'right' | 'back' | 'front';
   positionX: number;
 
   constructor(x: number) {
     this.hero = document.createElement("div");
+    this.life = 5;
     this.status = 'front';
     this.positionX = x;
   }

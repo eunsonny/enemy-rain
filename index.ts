@@ -1,8 +1,12 @@
-import game from './src/Components/game';
+import { Game } from './src/Components/game';
+// import game from './src/Components/game';
+
 import './src/Styles/style.css';
 
-game.start();
+ const game = new Game();
+ const init = () => {
+   const startButton = document.querySelector("button");
+   startButton?.addEventListener('click', game.start);
+ }
 
-setTimeout(() => {
-  game.end()
-}, 30000)
+ init();

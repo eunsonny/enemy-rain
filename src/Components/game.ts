@@ -1,46 +1,46 @@
-import hero from "./hero";
-import score from "./score";
 import stage from "./stage";
+import score from "./score";
+import hero from "./hero";
 import { Enemy } from "./enemy";
 
 export class Game {
-  bg: HTMLDivElement
+  bg: HTMLDivElement;
   enemyRain: number;
-  enemies: Array<any>;
+  enemies: Array<Enemy>;
 
   constructor() {
-    this.bg = document.querySelector('#bg') as HTMLDivElement;
-    this.enemyRain = 0
+    this.bg = document.querySelector("#bg") as HTMLDivElement;
+    this.enemyRain = 0;
     this.enemies = [];
   }
 
   start() {
     console.log("start game");
-    score.createScoreBoard();
-    stage.createStageBoard();
+    score.renderScoreBoard();
+    stage.renderStageBoard();
     hero.createHero();
-
-    this.enemyRain = setInterval(() => {
-      this.enemies.push(new Enemy(30, 'ghost'));
-    }, stage.enemyInterval);
-
     document.addEventListener("keydown", (e) => hero.move(e));
+
+    const gameOverText = document.querySelector('#game_over');
+    if (gameOverText) {
+      gameOverText.remove();
+    }
+
+    stage.start();
   }
 
   end() {
-    console.log('game end')
+    // 메인으로 가기
+    console.log("game end");
+    stage.level = 1;
+    stage.time = 0
+    score.score = 0;
+    this.bg.innerHTML = '';
     
-    clearInterval(this.enemyRain);
-    this.enemies.forEach((enemy) => enemy.die());
-    alert(`level ${stage.level} stage is over`);
-
-    if (stage.level < 3) {
-      if (!confirm('Do you want to go to next stage?')) return;
-      score.score = 0;
-      stage.goToNext();
-    } else {
-      alert('Game over!');
-    }
+    const gameOver = document.createElement('span');
+    gameOver.id = 'game_over';
+    gameOver.innerText = "game Over";
+    this.bg.appendChild(gameOver);
   }
 }
 

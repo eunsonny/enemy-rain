@@ -58,3 +58,20 @@
   font-size: 20px;
   font-weight: bold;
 }
+
+#game_over {
+  color: white;
+  font-size: 45px;
+  font-weight: 500;
+  position: relative;
+  left: 320px;
+  top: 280px;
+}
+
+#time {
+  color: white;
+  font-size: 15px;
+  position: relative;
+  top: -20px;
+  left: 70px;
+}

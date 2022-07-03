@@ -36,7 +36,7 @@ export class Enemy {
        if (this.positionY === 485) {
          if ((Math.abs(hero.positionX - this.positionX) <= 35) && hero.status === 'back') {
             this.die();
-            score.getPoint()
+            score.plusPoint();
          }  
        }
 
@@ -47,7 +47,7 @@ export class Enemy {
   }
 
   die() {
-    this.enemy.className = 'enemy die';
+    this.enemy.className = 'ghost die';
     clearInterval(this.enemyDown);
     setTimeout(() => {
       game.bg.removeChild(this.enemy);

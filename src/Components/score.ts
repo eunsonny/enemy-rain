@@ -1,3 +1,4 @@
+import stage from "./stage";
 
 export class Score {
   scoreBoard: HTMLDivElement;
@@ -8,20 +9,24 @@ export class Score {
     this.score = 0
   }
 
-  createScoreBoard() {
+  renderScoreBoard() {
     const bg = document.querySelector("#bg");
     this.scoreBoard.id = "score_board";
     this.scoreBoard.innerHTML = `<span id="score">Score: ${this.score}</span>`
     bg?.appendChild(this.scoreBoard);
   }
 
-  getPoint() {
+  plusPoint() {
     this.score += 1;
     const scoreBoard = document.querySelector('#score_board');
     if (scoreBoard) {
       const bg = document.querySelector("#bg");
       scoreBoard.innerHTML = `<span>Score: ${this.score}</span>`;
       bg?.appendChild(scoreBoard)
+    }
+
+    if (this.score === 3) {
+      stage.end('clear');
     }
   }
 }
